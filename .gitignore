@@ -12,7 +12,7 @@ __pycache__/
 *$py.class
 
 #############################
-# Jupyter Notebook
+# Jupyter Notebooks
 #############################
 
 .ipynb_checkpoints/
@@ -41,15 +41,10 @@ conda-meta/
 .env.*
 
 #############################
-# VS Code
+# IDE Settings
 #############################
 
 .vscode/
-
-#############################
-# PyCharm
-#############################
-
 .idea/
 
 #############################
@@ -67,7 +62,7 @@ logs/
 *.temp
 
 #############################
-# Operating System
+# Operating System Files
 #############################
 
 .DS_Store
@@ -92,31 +87,23 @@ desktop.ini
 # Data
 #############################
 
-# Ignore all raw datasets
+# Ignore raw datasets
 data/raw/*
 
 # Keep folder structure
 !data/raw/.gitkeep
 
-#############################
-# Processed Data
-#############################
+# Ignore processed datasets
+data/processed/*
 
-# Uncomment if processed data becomes too large
-# data/processed/*
+# Keep folder structure
+!data/processed/.gitkeep
 
 #############################
 # Reports
 #############################
 
 reports/*.pdf
-
-#############################
-# Images (Optional)
-#############################
-
-# Uncomment if generated images become large
-# images/output/
 
 #############################
 # Python Cache
@@ -142,7 +129,7 @@ dist/
 htmlcov/
 
 #############################
-# Secrets
+# Secrets & Credentials
 #############################
 
 secrets/
@@ -150,8 +137,9 @@ credentials/
 *.pem
 *.key
 
-###########################################################
-# End
-###########################################################
-data/processed/*
-!data/processed/.gitkeep
+#############################
+# Miscellaneous
+#############################
+
+*.swp
+*.swo
