@@ -8,4 +8,4 @@ Purpose : Create the project database
 */
 
 
-create database FraudRiskAnalytics
+create database FraudRiskAnalytics;

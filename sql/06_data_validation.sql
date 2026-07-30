@@ -37,7 +37,7 @@ FROM transactions;
 
 SELECT
 transaction_id,
-COUNT(*)
+COUNT(*) duplicate_count
 FROM transactions
 GROUP BY transaction_id
 HAVING COUNT(*) > 1;
@@ -67,7 +67,7 @@ ORDER BY total DESC;
   6. Amount Statistics
 =========================================================*/
 
-SELECT
+SELECT 
 MIN(amount_received) AS min_received,
 MAX(amount_received) AS max_received,
 AVG(amount_received) AS avg_received
@@ -89,8 +89,30 @@ FROM transactions;
   accounts master table.
 =========================================================*/
 
-SELECT COUNT(*)
+SELECT COUNT(*) AS orphan_sender_accounts
 FROM transactions t
 LEFT JOIN accounts a
 ON t.sender_account = a.account_number
 WHERE a.account_number IS NULL;
+
+
+/*=========================================================
+  9. Payment format validation
+=========================================================*/
+
+SELECT
+payment_format,
+COUNT(*) AS total
+FROM transactions
+GROUP BY payment_format
+ORDER BY total DESC;
+
+
+/*=========================================================
+  10. Amount validation
+=========================================================*/
+
+SELECT COUNT(*) AS invalid_amount_transctions
+FROM transactions
+WHERE amount_received <= 0
+OR amount_paid <= 0;
